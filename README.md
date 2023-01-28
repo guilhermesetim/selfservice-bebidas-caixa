@@ -13,6 +13,9 @@ Esse repositório destina-se ao *caixa* do protótipo, o projeto deve ser execut
 - Dispenser: https://github.com/guilhermesetim/selfservice-bebidas-dispenser
 - Software de gestão: https://github.com/guilhermesetim/selfservice-bebidas-gestao
 
+## Layout
+![layout](assets/layout1.png) ![layout](assets/layout2.png) ![layout](assets/layout3.png)  
+
 ## Arquitetura do Caixa
 
 Semelhante ao dispenser, a entrada do sistema consiste na leitura da tag do usuário por meio do módulo RFID, o módulo RFID comunica com o microcontrolador para enviar o código ID da tag. O microcontrolador realiza o tratamento das informações de byte para hexadecimal, e envia ao servidor o código via porta serial. Entretanto, o cadastramento e a adição de crédito acontecem via software. O embarcado nesse sistema serve apenas para identificação automática do usuário no sistema.
