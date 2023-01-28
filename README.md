@@ -11,9 +11,9 @@ O sofware de gestão do proprietário, tem o objetivo de entregar um balancete d
 Esse repositório destina-se ao *caixa* do protótipo, o projeto deve ser executado junto com os seguintes repositórios: 
 - Banco de dados: https://github.com/guilhermesetim/selfservice-bebidas-bd
 - Dispenser: https://github.com/guilhermesetim/selfservice-bebidas-dispenser
-- Software de gestão:
+- Software de gestão: https://github.com/guilhermesetim/selfservice-bebidas-gestao
 
-## Arquitetura do Dispenser
+## Arquitetura do Caixa
 
 Semelhante ao dispenser, a entrada do sistema consiste na leitura da tag do usuário por meio do módulo RFID, o módulo RFID comunica com o microcontrolador para enviar o código ID da tag. O microcontrolador realiza o tratamento das informações de byte para hexadecimal, e envia ao servidor o código via porta serial. Entretanto, o cadastramento e a adição de crédito acontecem via software. O embarcado nesse sistema serve apenas para identificação automática do usuário no sistema.
 
@@ -39,9 +39,12 @@ Semelhante ao dispenser, a entrada do sistema consiste na leitura da tag do usu�
   - MySql Connector/Python: drive de comunicação Python com banco de dados MySql;
   - PySimpleGUI: Biblioteca de interface gráfica para Python; 
 
-
+##### Diagram de Classes
+![diagrama-de-classe](assets/caixa-uml.png)
 
 ## Como executar o projeto
+
+O módulo RFID utiliza obrigatoriamente portas especifícas (RST - 9; SDA - 10; MOSI - 11; MISO - 12; SCK - 13).
 
 O microcontrolador deve ser carregado por meio do Arduino IDE, com o arquivo caixa_arduino.ino. Juntamente instalar as bibliotecas:
 - MFRC522: instalada por meio da Arduino IDE, ou pelo repositório do GitHub: https://github.com/miguelbalboa/rfid
@@ -54,7 +57,7 @@ pip install PySimpleGUI
 pip install mysql-connector-python
 ```
 
-### Como adequar ao seu projeto de ChatBot
+### Como adequar ao seu projeto
 No servidor é necessário execuar o banco de dados MySQL, e informar o endereço e senha do banco de dados utilizado. Além de informar a porta USB que o microcontrolador está executando, para Windows utiliza-se 'COM' e para sistemas UNIX  '/dev/ttyUSB', ambos seguidos do número da porta.
 
 # Autor
